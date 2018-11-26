@@ -303,6 +303,14 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Thunderfield"
 	icon_state = "thunderfield"
 
+/area/thunderfield/Exited(atom/movable/A)
+	world.log << "[A.name]"
+	var/turf/T = get_turf(A)
+	world.log << "[T.name]"
+	if(!istype(T.loc, /area/thunderfield))
+		world.log << "[T.loc.name]"
+		A.leave_vr(src)
+
 //ENEMY
 
 //names are used

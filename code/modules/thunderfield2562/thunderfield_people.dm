@@ -87,8 +87,6 @@
 	vrbody.vr_mind = vr_mind
 	vr_mind.transfer_to(vrbody)
 	death_actions()
-	if(vr_mind.thunderfield_cheater)
-		vr_mind.thunder_points = POINTS_FOR_CHEATER
 	return ..()
 
 /mob/living/carbon/human/vrhuman/proc/death_actions()
@@ -140,6 +138,9 @@
 	last_cleanup_time = world.time
 	for(var/turf/unsimulated/floor/self_cleaning/sc in self_cleaning_list)
 		sc.cleaner()
+
+/mob/living/leave_vr(area/thunderfield/T)
+	death()
 
 #undef SPAWN_PROTECTION_TIME
 #undef DEAD_DELETE_COUNTDOWN

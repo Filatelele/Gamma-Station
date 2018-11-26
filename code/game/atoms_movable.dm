@@ -330,3 +330,6 @@
 	if(buckled_mob == mover)
 		return 1
 	return ..()
+
+/atom/movable/proc/leave_vr(area/thunderfield/T)
+	qdel(src)

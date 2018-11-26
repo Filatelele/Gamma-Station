@@ -700,3 +700,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	ghostimage = image(icon, src, icon_state)
 	ghost_darkness_images |= ghostimage
 	updateallghostimages()
+
+/mob/dead/leave_vr(area/thunderfield/T)
+	return

@@ -1181,3 +1181,7 @@
 
 		to_chat(src, "<span class='notice'>You can taste [english_list(final_taste_list)].</span>")
 		lasttaste = world.time
+
+/mob/living/leave_vr(area/thunderfield/T)
+	death()
+	qdel(src)
