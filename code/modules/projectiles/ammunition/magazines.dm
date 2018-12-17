@@ -513,3 +513,28 @@
 /obj/item/ammo_box/magazine/a74mm/update_icon()
 	..()
 	icon_state = "[initial(icon_state)]-[ceil(ammo_count(0) / 30) * 30]"
+
+/obj/item/ammo_box/magazine/vss
+	name = "VSS magazine (9x39) 10 rounds"
+	ammo_type = /obj/item/ammo_casing/vss
+	icon_state = "vss-full"
+	caliber = "9x39"
+	max_ammo = 10
+
+/obj/item/ammo_box/magazine/vss/update_icon()
+	..()
+	if(stored_ammo.len)
+		icon_state = "vss-full"
+	else
+		icon_state = "vss-empty"
+
+/obj/item/ammo_box/magazine/vss/rubber/twentyrounds
+	name = "VSS magazine (9x39) 20 rounds"
+	ammo_type = /obj/item/ammo_casing/vss/rubber
+	max_ammo = 20
+
+/obj/item/ammo_box/magazine/vss/rubber/thirtyrounds
+	name = "VSS magazine (9x39R) 30 rubber"
+	ammo_type = /obj/item/ammo_casing/vss/rubber
+	caliber = "9x39R"
+	max_ammo = 30

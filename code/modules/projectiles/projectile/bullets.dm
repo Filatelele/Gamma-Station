@@ -213,3 +213,20 @@
 		var/mob/living/carbon/M = target
 		M.adjust_fire_stacks(1)
 		M.IgniteMob()
+
+/obj/item/projectile/bullet/vss
+	damage = 30
+
+/obj/item/projectile/bullet/weakbullet/vss
+	stutter = 10
+	agony = 55
+
+/obj/item/projectile/bullet/weakbullet/vss/on_hit(atom/target, blocked = 0)
+	if(issilicon(target))
+		var/mob/living/silicon/S = target
+		S.take_bodypart_damage(20)//+10=30
+		S.emp_act(2)
+	else if(istype(target,/obj/mecha))
+		var/obj/mecha/M = target
+		M.take_damage(25)
+	..()

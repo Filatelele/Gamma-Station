@@ -205,3 +205,13 @@
 	desc = "A 7.74mm bullet casing."
 	caliber = "7.74mm"
 	projectile_type = /obj/item/projectile/bullet/rifle3
+
+/obj/item/ammo_casing/vss
+	desc = "A 9x39mm bullet casing."
+	caliber = "9x39"
+	projectile_type = /obj/item/projectile/bullet/vss
+
+/obj/item/ammo_casing/vss/rubber
+	desc = "A 9x39mm rubber bullet casing."
+	caliber = "9x39R"
+	projectile_type = /obj/item/projectile/bullet/weakbullet/vss

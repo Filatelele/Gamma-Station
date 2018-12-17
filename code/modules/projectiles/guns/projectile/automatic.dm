@@ -524,3 +524,23 @@
 	..()
 	icon_state = "type76_[magazine ? "clip" : "empty"]"
 	item_state = "type76_[magazine ? "clip" : "empty"]"
+
+/obj/item/weapon/gun/projectile/automatic/boltorez
+	name = "VSS boltorez"
+	desc = "Silenced rifle for special operations. Uses 9x39 rounds."
+	icon_state = "boltorez"
+	silenced = 1
+	mag_type = /obj/item/ammo_box/magazine/vss
+	origin_tech = "combat=4;materials=2;"
+	fire_sound = 'sound/weapons/Gunshot_silenced.ogg'
+	var/icon/mag_icon = icon('icons/obj/gun.dmi',"mag-boltorez")
+
+/obj/item/weapon/gun/projectile/automatic/boltorez/update_icon()
+	..()
+	overlays.Cut()
+	if(magazine)
+		icon_state = "boltorez"
+		overlays += mag_icon
+	else
+		icon_state = "boltorez-e"
+	return

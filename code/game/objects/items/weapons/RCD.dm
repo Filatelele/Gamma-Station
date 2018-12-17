@@ -84,12 +84,16 @@ RCD
 
 /obj/item/weapon/rcd/afterattack(atom/A, mob/user, proximity)
 	if(!Adjacent(A))
+		world.log << "Adjacent"
 		return FALSE
 	if(disabled && !isrobot(user))
+		world.log << "False"
 		return 0
 	if(istype(A, /area/shuttle)||istype(A,/turf/space/transit))
+		world.log << "FAlse"
 		return 0
 	if(!(istype(A, /turf) || istype(A, /obj/machinery/door/airlock)))
+		world.log << "FALSE"
 		return 0
 
 	switch(mode)
