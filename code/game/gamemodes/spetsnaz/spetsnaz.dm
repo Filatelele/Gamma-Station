@@ -38,9 +38,9 @@
 		antag_candidates -= new_soviet
 		agent_number--
 
-	for(var/datum/mind/synd_mind in syndicates)
-		synd_mind.assigned_role = "MODE"
-		synd_mind.special_role = "Soviet Spetsnaz"
+	for(var/datum/mind/tachanka in tachankas)
+		tachanka.assigned_role = "MODE"
+		tachanka.special_role = "Soviet Spetsnaz"
 	return 1
 
 /datum/game_mode/spetsnaz/pre_setup()

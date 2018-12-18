@@ -529,7 +529,7 @@
 		icon_state = "vss-empty"
 
 /obj/item/ammo_box/magazine/vss/rubber/twentyrounds
-	name = "VSS magazine (9x39) 20 rounds"
+	name = "VSS magazine (9x39) 20 rubber"
 	ammo_type = /obj/item/ammo_casing/vss/rubber
 	max_ammo = 20
 
@@ -538,3 +538,11 @@
 	ammo_type = /obj/item/ammo_casing/vss/rubber
 	caliber = "9x39R"
 	max_ammo = 30
+
+/obj/item/ammo_box/magazine/maxim
+	name = "magazine (7.62mm)"
+	icon_state = "maxim"
+	origin_tech = "combat=2"
+	ammo_type = /obj/item/ammo_casing/a762
+	caliber = "a762"
+	max_ammo = 100

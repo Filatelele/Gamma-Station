@@ -544,3 +544,76 @@
 	else
 		icon_state = "boltorez-e"
 	return
+
+/obj/item/weapon/gun/projectile/automatic/maxim
+	name = "\improper maxim LMG"
+	desc = "Light machine gun for supressing enemy"
+	icon_state = "maxim-full"
+	item_state = "maxim"
+	w_class = 5
+	slot_flags = 0
+	origin_tech = "combat=5;materials=1;syndicate=2"
+	mag_type = /obj/item/ammo_box/magazine/maxim
+	fire_sound = 'sound/weapons/gunshot3.wav'
+	var/wielded = 0
+
+/obj/item/weapon/gun/projectile/automatic/maxim/proc/unwield()
+	wielded = 0
+	update_icon()
+
+/obj/item/weapon/gun/projectile/automatic/maxim/proc/wield()
+	wielded = 1
+	update_icon()
+
+/obj/item/weapon/gun/projectile/automatic/maxim/mob_can_equip(M, slot)
+	//Cannot equip wielded items.
+	if(wielded)
+		to_chat(M, "<span class='warning'>Unwield the [initial(name)] first!</span>")
+		return 0
+
+	return ..()
+
+/obj/item/weapon/gun/projectile/automatic/maxim/dropped(mob/user)
+	if(user)
+		var/obj/item/weapon/gun/projectile/automatic/l6_saw/O = user.get_inactive_hand()
+		if(istype(O))
+			O.unwield()
+	return	unwield()
+
+/obj/item/weapon/gun/projectile/automatic/maxim/pickup(mob/user)
+	unwield()
+
+/obj/item/weapon/gun/projectile/automatic/maxim/attack_self(mob/user)
+	if(wielded)
+		unwield()
+		to_chat(user, "<span class='notice'>You are now carrying the [name] with one hand.</span>")
+		if(user.hand)
+			user.update_inv_l_hand()
+		else
+			user.update_inv_r_hand()
+
+		var/obj/item/weapon/twohanded/offhand/O = user.get_inactive_hand()
+		if(O && istype(O))
+			O.unwield()
+			return
+
+	else
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			var/W = H.wield(src, initial(name))
+			if(W)
+				wield()
+
+/obj/item/weapon/gun/projectile/automatic/maxim/update_icon()
+	if(magazine)
+		icon_state = "maxim-full"
+	else
+		icon_state = "maxim"
+
+/obj/item/weapon/gun/projectile/automatic/maxim/afterattack(atom/target, mob/living/user, flag, params)
+	if(!wielded)
+		to_chat(user, "<span class='notice'>You need wield [src] in both hands before firing!</span>")
+		return
+	else
+		..()
+		update_icon()
