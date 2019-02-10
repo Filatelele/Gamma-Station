@@ -17,6 +17,19 @@
 	minimal_player_age = 10
 	minimal_player_ingame_minutes = 5000
 
+	skill_points = 24
+
+	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
+	                    SKILL_MEDICAL     = SKILL_ADEPT,
+	                    SKILL_ANATOMY     = SKILL_EXPERT,
+	                    SKILL_CHEMISTRY   = SKILL_BASIC,
+	                    SKILL_VIROLOGY    = SKILL_BASIC)
+
+	max_skill = list(   SKILL_MEDICAL     = SKILL_MAX,
+	                    SKILL_ANATOMY     = SKILL_MAX,
+	                    SKILL_CHEMISTRY   = SKILL_MAX,
+	                    SKILL_VIROLOGY    = SKILL_MAX)
+
 /datum/job/cmo/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
 	switch(H.backbag)
@@ -51,6 +64,8 @@
 	access = list(access_medical, access_morgue, access_surgery, access_maint_tunnels)
 	alt_titles = list("Surgeon", "Nurse")
 	minimal_player_ingame_minutes = 960
+
+	skill_points = 20
 
 /datum/job/doctor/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
@@ -111,6 +126,8 @@
 	minimal_player_ingame_minutes = 1500 //they have too much access, so you have to play more to unlock it
 	restricted_species = list(DIONA)
 
+	skill_points = 15
+
 /datum/job/paramedic/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/medical(H), slot_w_uniform)
@@ -147,6 +164,8 @@
 	alt_titles = list("Pharmacist")
 	minimal_player_ingame_minutes = 960
 
+	skill_points = 18
+
 /datum/job/chemist/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/chemist(H), slot_w_uniform)
@@ -179,6 +198,8 @@
 	idtype = /obj/item/weapon/card/id/med
 	access = list(access_medical, access_morgue, access_genetics, access_research)
 	minimal_player_ingame_minutes = 960
+
+	skill_points = 20
 
 /datum/job/geneticist/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
@@ -215,6 +236,8 @@
 	alt_titles = list("Pathologist","Microbiologist")
 	minimal_player_ingame_minutes = 960
 
+	skill_points = 20
+
 /datum/job/virologist/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/virologist(H), slot_w_uniform)
@@ -249,6 +272,8 @@
 	access = list(access_medical, access_psychiatrist)
 	alt_titles = list("Psychologist")
 	minimal_player_ingame_minutes = 960
+
+	skill_points = 12
 
 /datum/job/psychiatrist/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0

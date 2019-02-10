@@ -75,7 +75,7 @@
 
 	. = ..()
 
-	sleep_offline = 1
+	//sleep_offline = 1
 
 	spawn(3000)		//so we aren't adding to the round-start lag
 		if(config.kick_inactive)

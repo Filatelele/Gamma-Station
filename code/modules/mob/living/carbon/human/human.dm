@@ -123,6 +123,8 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 
 	verbs += /mob/living/carbon/proc/crawl
 
+	skillset = new /datum/skillset(src)
+
 	prev_gender = gender // Debug for plural genders
 	make_blood()
 	regenerate_icons()

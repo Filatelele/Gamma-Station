@@ -19,6 +19,18 @@
 	minimal_player_ingame_minutes = 8000
 	restricted_species = list(TAJARAN, DIONA)
 
+	skill_points = 20
+
+	min_skill = list(   SKILL_BUREAUCRACY = SKILL_ADEPT,
+	                    SKILL_EVA         = SKILL_BASIC,
+	                    SKILL_COMBAT      = SKILL_BASIC,
+	                    SKILL_WEAPONS     = SKILL_ADEPT,
+	                    SKILL_FORENSICS   = SKILL_BASIC)
+
+	max_skill = list(   SKILL_COMBAT      = SKILL_MAX,
+	                    SKILL_WEAPONS     = SKILL_MAX,
+	                    SKILL_FORENSICS   = SKILL_MAX)
+
 /datum/job/hos/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
 	switch(H.backbag)
@@ -63,6 +75,8 @@
 	minimal_player_age = 5
 	minimal_player_ingame_minutes = 3800
 	restricted_species = list(TAJARAN, DIONA)
+
+	skill_points = 14
 
 /datum/job/warden/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
@@ -110,6 +124,8 @@
 	minimal_player_ingame_minutes = 3560
 	restricted_species = list(DIONA)
 
+	skill_points = 15
+
 /datum/job/detective/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
 	switch(H.backbag)
@@ -153,6 +169,8 @@
 	minimal_player_ingame_minutes = 3560
 	restricted_species = list(DIONA, TAJARAN)
 
+	skill_points = 18
+
 /datum/job/officer/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
 	switch(H.backbag)
@@ -192,6 +210,8 @@
 	access = list(access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_court)
 	minimal_player_age = 3
 	minimal_player_ingame_minutes = 560
+
+	skill_points = 15
 
 /datum/job/forensic/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0

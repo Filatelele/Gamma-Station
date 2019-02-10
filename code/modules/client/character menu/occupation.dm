@@ -71,6 +71,9 @@
 			else
 				. += " <font color=red size=2>No</font>"
 			. += "</a></td></tr>"
+
+			. += "</a></tr></td><tr bgcolor='[lastJob.selection_color]'><td width='60%' align='center'></td><td><a class='white' href='?_src_=prefs;preference=job;task=set_skills;text=[rank]'><font color=blue size=2>View Skills</font></a></td></tr>"
+
 			if(job.alt_titles)
 				. += "</a></td></tr><tr bgcolor='[lastJob.selection_color]'><td width='60%' align='center'><a>&nbsp</a></td><td><a href=\"byond://?src=\ref[user];preference=job;task=alt_title;job=\ref[job]\">\[[GetPlayerAltTitle(job)]\]</a></td></tr>"
 			continue
@@ -83,9 +86,12 @@
 			. += " <font color=orange size=2>Low</font>"
 		else
 			. += " <font color=red size=2>NEVER</font>"
+
+		//. += "</td></tr></td><tr><td><a class='white' href='?_src_=prefs;preference=skills;task=set_skills;text=[rank]'>Skills</a></td></tr>"
+		. += "</a></tr></td><tr bgcolor='[lastJob.selection_color]'><td width='60%' align='center'></td><td><a class='white' href='?_src_=prefs;preference=job;task=set_skills;text=[rank]'><font color=blue size=2>View Skills</font></a></td></tr>"
+
 		if(job.alt_titles)
-			. += "</a></td></tr><tr bgcolor='[lastJob.selection_color]'><td width='60%' align='center'><a>&nbsp</a></td><td><a href=\"byond://?src=\ref[user];preference=job;task=alt_title;job=\ref[job]\">\[[GetPlayerAltTitle(job)]\]</a></td></tr>"
-		. += "</a></td></tr>"
+			. += "</a></tr></td><tr bgcolor='[lastJob.selection_color]'><td width='60%' align='center'><a>&nbsp</a></td><td><a href=\"byond://?src=\ref[user];preference=job;task=alt_title;job=\ref[job]\">\[[GetPlayerAltTitle(job)]\]</a></td></tr>"
 
 	. += "</td></tr></table>"
 
@@ -114,6 +120,8 @@
 						SetPlayerAltTitle(job, choice)
 			if("input")
 				SetJob(user, href_list["text"])
+			if("set_skills")
+				edit_skills(user, href_list["text"])
 
 /datum/preferences/proc/GetPlayerAltTitle(datum/job/job)
 	return player_alt_titles.Find(job.title) > 0 \

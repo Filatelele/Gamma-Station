@@ -18,6 +18,22 @@
 	minimal_player_age = 7
 	minimal_player_ingame_minutes = 1400
 
+	skill_points = 16
+
+	min_skill = list("/datum/skill/organizational/bureaucracy"= SKILL_BASIC,
+					"/datum/skill/general/computer" = SKILL_ADEPT,
+					"/datum/skill/general/EVA" = SKILL_ADEPT,
+					"/datum/skill/engineering/construction" = SKILL_ADEPT,
+					"/datum/skill/engineering/electrical" = SKILL_ADEPT,
+					"/datum/skill/engineering/atmos" = SKILL_ADEPT,
+					"/datum/skill/engineering/engines" = SKILL_EXPERT)
+
+	max_skill = list(   SKILL_CONSTRUCTION = SKILL_MAX,
+	                    SKILL_ELECTRICAL   = SKILL_MAX,
+	                    SKILL_ATMOS        = SKILL_MAX,
+	                    SKILL_ENGINES      = SKILL_MAX)
+
+
 /datum/job/chief_engineer/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
 	switch(H.backbag)
@@ -53,6 +69,8 @@
 	alt_titles = list("Maintenance Technician","Engine Technician","Electrician")
 	minimal_player_age = 3
 	minimal_player_ingame_minutes = 540
+
+	skill_points = 18
 
 /datum/job/engineer/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
@@ -90,6 +108,8 @@
 	access = list(access_atmospherics, access_maint_tunnels, access_emergency_storage, access_construction, access_external_airlocks)
 	minimal_player_age = 3
 	minimal_player_ingame_minutes = 600
+
+	skill_points = 16
 
 /datum/job/atmos/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0

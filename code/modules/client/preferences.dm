@@ -127,6 +127,10 @@ var/const/MAX_SAVE_SLOTS = 10
 	var/list/gear = list()
 	var/gear_tab = "General"
 
+	// Skills
+	var/list/skill_by_job = list()
+	var/list/points_by_job = list()
+
 /datum/preferences/New(client/C)
 	parent = C
 	b_type = pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")

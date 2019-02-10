@@ -412,18 +412,18 @@ var/list/ghostteleportlocs = list()
 
 	if(istype(mob,/mob/living/carbon/human/))  // Only humans can wear magboots, so we give them a chance to.
 		var/mob/living/carbon/human/H = mob
-		if((istype(H.shoes, /obj/item/clothing/shoes/magboots) && (H.shoes.flags & NOSLIP)))
+		/*if((istype(H.shoes, /obj/item/clothing/shoes/magboots) && (H.shoes.flags & NOSLIP)))
 			return
 		if((istype(H.wear_suit, /obj/item/clothing/suit/space/rig) && (H.wear_suit.flags & NOSLIP))) //Humans in rig with turn on magboots
-			return
-
-		if(H.m_intent == "run")
-			H.AdjustStunned(2)
-			H.AdjustWeakened(2)
-		else
-			H.AdjustStunned(1)
-			H.AdjustWeakened(1)
-		to_chat(mob, "<span class='notice'>The sudden appearance of gravity makes you fall to the floor!</span>")
+			return*/
+		if(prob(H.skill_fail_chance(SKILL_EVA, 100, SKILL_PROF)))
+			if(H.m_intent == "run")
+				H.AdjustStunned(2)
+				H.AdjustWeakened(2)
+			else
+				H.AdjustStunned(1)
+				H.AdjustWeakened(1)
+			to_chat(mob, "<span class='notice'>The sudden appearance of gravity makes you fall to the floor!</span>")
 
 /proc/has_gravity(atom/AT, turf/T)
 	if(!T)

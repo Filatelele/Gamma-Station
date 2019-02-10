@@ -18,6 +18,20 @@
 	minimal_player_age = 30
 	minimal_player_ingame_minutes = 2000
 
+	skill_points = 24
+
+	min_skill = list(   SKILL_BUREAUCRACY = SKILL_ADEPT,
+	                    SKILL_COMPUTER    = SKILL_BASIC,
+	                    SKILL_FINANCE     = SKILL_ADEPT,
+	                    SKILL_BOTANY      = SKILL_BASIC,
+	                    SKILL_ANATOMY     = SKILL_BASIC,
+	                    SKILL_DEVICES     = SKILL_BASIC,
+	                    SKILL_SCIENCE     = SKILL_ADEPT)
+
+	max_skill = list(   SKILL_ANATOMY     = SKILL_MAX,
+	                    SKILL_DEVICES     = SKILL_MAX,
+	                    SKILL_SCIENCE     = SKILL_MAX)
+
 /datum/job/rd/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/brown(H), slot_shoes)
@@ -51,6 +65,8 @@
 	access = list(access_tox, access_tox_storage, access_research, access_xenoarch)
 	alt_titles = list("Phoron Researcher")
 	minimal_player_ingame_minutes = 760
+
+	skill_points = 16
 
 /datum/job/scientist/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
@@ -90,6 +106,8 @@
 	access = list(access_research, access_xenoarch)
 	minimal_player_ingame_minutes = 400
 
+	skill_points = 16
+
 /datum/job/xenoarcheologist/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/scientist(H), slot_w_uniform)
@@ -122,6 +140,8 @@
 	idtype = /obj/item/weapon/card/id/sci
 	access = list(access_research, access_xenobiology)
 	minimal_player_ingame_minutes = 760
+
+	skill_points = 16
 
 /datum/job/xenobiologist/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H) return 0
@@ -156,6 +176,8 @@
 	access = list(access_robotics, access_morgue, access_research) //As a job that handles so many corpses, it makes sense for them to have morgue access.
 	alt_titles = list("Biomechanical Engineer","Mechatronic Engineer")
 	minimal_player_ingame_minutes = 760
+
+	skill_points = 12
 
 /datum/job/roboticist/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0

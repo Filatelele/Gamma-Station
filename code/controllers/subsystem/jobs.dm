@@ -14,6 +14,7 @@ var/datum/subsystem/job/SSjob
 	var/list/occupations = list()		//List of all jobs
 	var/list/unassigned = list()		//Players who need jobs
 	var/list/job_debug = list()			//Debug info
+	var/list/skills = list()			// List of all skills
 
 /datum/subsystem/job/New()
 	NEW_SS_GLOBAL(SSjob)
@@ -21,6 +22,7 @@ var/datum/subsystem/job/SSjob
 
 /datum/subsystem/job/Initialize(timeofday)
 	SetupOccupations()
+	SetupSkills()
 	LoadJobs("config/jobs.txt")
 	..()
 
@@ -42,6 +44,15 @@ var/datum/subsystem/job/SSjob
 
 	return 1
 
+/datum/subsystem/job/proc/SetupSkills()
+	for(var/T in skill_categories)
+		var/datum/skill/S = new T
+		for(var/A in (subtypesof(S.type)))
+			var/datum/skill/C = new A
+			S.children += C
+			skills += C
+		skill_categories -= T
+		skill_categories += S
 
 /datum/subsystem/job/proc/Debug(text)
 	if(!Debug2)

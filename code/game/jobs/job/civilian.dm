@@ -12,6 +12,8 @@
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mint, access_mining, access_mining_station, access_recycler)
 	minimal_player_ingame_minutes = 1000
 
+	skill_points = 10
+
 /datum/job/qm/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
 	if(H.gender == FEMALE)
@@ -43,6 +45,7 @@
 	access = list(access_maint_tunnels, access_cargo, access_cargo_bot, access_mailsorting)
 	minimal_player_ingame_minutes = 360
 
+	skill_points = 8
 
 /datum/job/cargo_tech/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
@@ -70,6 +73,8 @@
 	idtype = /obj/item/weapon/card/id/cargo
 	access = list(access_mining, access_mint, access_mining_station, access_mailsorting)
 	minimal_player_ingame_minutes = 180
+
+	skill_points = 8
 
 /datum/job/mining/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
@@ -104,6 +109,8 @@
 	access = list(access_mining, access_mint, access_mailsorting, access_recycler)
 	minimal_player_ingame_minutes = 960
 
+	skill_points = 6
+
 /datum/job/recycler/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/recycler(H), slot_w_uniform)
@@ -131,6 +138,8 @@
 	idtype = /obj/item/weapon/card/id/civ
 	access = list(access_bar)
 	minimal_player_ingame_minutes = 180
+
+	skill_points = 7
 
 /datum/job/bartender/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
@@ -178,6 +187,8 @@
 	alt_titles = list("Cook")
 	minimal_player_ingame_minutes = 180
 
+	skill_points = 7
+
 /datum/job/chef/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/chef(H), slot_w_uniform)
@@ -204,6 +215,8 @@
 	access = list(access_hydroponics) // Removed tox and chem access because STOP PISSING OFF THE CHEMIST GUYS // //Removed medical access because WHAT THE FUCK YOU AREN'T A DOCTOR YOU GROW WHEAT //Given Morgue access because they have a viable means of cloning.
 	alt_titles = list("Hydroponicist")
 	minimal_player_ingame_minutes = 180
+
+	skill_points = 7
 
 /datum/job/hydro/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
@@ -239,6 +252,8 @@
 	access = list(access_janitor, access_maint_tunnels)
 	minimal_player_ingame_minutes = 0
 
+	skill_points = 4
+
 /datum/job/janitor/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/rank/janitor(H), slot_w_uniform)
@@ -270,6 +285,8 @@
 	access = list(access_barber)
 	alt_titles = list("Stylist")
 	minimal_player_ingame_minutes = 0
+
+	skill_points = 4
 
 /datum/job/barber/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
@@ -306,6 +323,8 @@
 	alt_titles = list("Journalist")
 	minimal_player_ingame_minutes = 0
 
+	skill_points = 5
+
 /datum/job/librarian/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/red(H), slot_w_uniform)
@@ -333,6 +352,8 @@
 	access = list(access_lawyer, access_court, access_sec_doors)
 	minimal_player_ingame_minutes = 1560
 	restricted_species = list(UNATHI, TAJARAN, DIONA, IPC, SKRELL, TYCHEON)
+
+	skill_points = 10
 
 /datum/job/lawyer/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
@@ -371,6 +392,8 @@
 	access = list(access_clown, access_theatre)
 	minimal_player_ingame_minutes = 180
 
+	skill_points = 5
+
 /datum/job/clown/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/clown(H), slot_back)
@@ -403,6 +426,8 @@
 	selection_color = "#dddddd"
 	idtype = /obj/item/weapon/card/id/mime
 	access = list(access_mime, access_theatre)
+
+	skill_points = 5
 
 /datum/job/mime/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0

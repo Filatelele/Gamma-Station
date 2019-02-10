@@ -37,9 +37,12 @@ Contains helper procs for airflow, handled in /connection_group.
 	return
 
 /mob/living/carbon/human/airflow_stun()
-	if(shoes && (shoes.flags & NOSLIP))
+	world.log << "Airflow stun"
+	if((shoes && (shoes.flags & NOSLIP)) && !prob(skill_fail_chance(SKILL_EVA, 100, SKILL_PROF)))
+		world.log << "false"
 		return FALSE
-	if(wear_suit && (wear_suit.flags & NOSLIP))
+	if((wear_suit && (wear_suit.flags & NOSLIP)) && !prob(skill_fail_chance(SKILL_EVA, 100, SKILL_PROF)))
+		world.log << "false"
 		return FALSE
 	if(FAT in mutations)
 		to_chat(src, "<span class='notice'>Air suddenly rushes past you!</span>")
@@ -108,10 +111,11 @@ Contains helper procs for airflow, handled in /connection_group.
 	return TRUE
 
 /mob/living/carbon/human/AirflowCanMove(n)
-	if(shoes && (shoes.flags & NOSLIP))
+	if((shoes && (shoes.flags & NOSLIP)) && prob(skill_fail_chance(SKILL_EVA, 100, SKILL_PROF)))
 		return FALSE
-	if(wear_suit && (wear_suit.flags & NOSLIP))
+	if((wear_suit && (wear_suit.flags & NOSLIP)) && prob(skill_fail_chance(SKILL_EVA, 100, SKILL_PROF)))
 		return FALSE
+
 	return ..()
 
 /atom/movable/proc/GotoAirflowDest(n)

@@ -44,6 +44,12 @@
 
 	var/list/restricted_species = list()
 
+	var/skill_points 				//Skill points for job
+
+	var/list/min_skill = list()			// Minimum skills allowed for the job
+
+	var/list/max_skill = list()			// Maximum skills allowed for the job
+
 /datum/job/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	return TRUE
 

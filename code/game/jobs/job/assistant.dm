@@ -11,6 +11,8 @@
 	alt_titles = list("Technical Assistant","Medical Intern","Research Assistant","Security Cadet",
 	"Lawyer","Mecha Operator","Private Eye","Reporter","Security Cadet","Waiter","Vice Officer","Paranormal Investigator")
 
+	skill_points = 6
+
 /datum/job/assistant/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
 		return 0

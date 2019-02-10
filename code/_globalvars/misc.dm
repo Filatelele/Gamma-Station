@@ -89,3 +89,5 @@ var/SHIT_TOGGLED = 0 //Глобальный переключатель непотребства
 	var/image/i = image('icons/mob/shadowling.dmi', null, "shadowling_ms_s", LIGHTING_LAYER + 1)
 	i.plane = LIGHTING_PLANE + 1
 	return i
+
+var/list/skill_categories = list(/datum/skill/organizational, /datum/skill/general, /datum/skill/service, /datum/skill/security, /datum/skill/engineering, /datum/skill/research, /datum/skill/medical)

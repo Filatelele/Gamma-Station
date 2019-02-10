@@ -2,7 +2,7 @@
 #define SAVEFILE_VERSION_MIN 8
 
 //This is the current version, anything below this will attempt to update (if it's not obsolete)
-#define SAVEFILE_VERSION_MAX 21
+#define SAVEFILE_VERSION_MAX 22
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -227,6 +227,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["player_alt_titles"]	>> player_alt_titles
 	S["organ_data"]			>> organ_data
 	S["gear"]				>> gear
+	S["skill_by_job"]		>> skill_by_job
+	S["points_by_job"]		>> points_by_job
 
 	S["nanotrasen_relation"] >> nanotrasen_relation
 	S["home_system"] 		>> home_system
@@ -254,6 +256,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		eye_name = "default"
 	if(!real_name) real_name = random_name(gender)
 	if(!gear) gear = list()
+	if(!skill_by_job)
+		skill_by_job = list()
+	if(!points_by_job)
+		points_by_job = list()
 	be_random_name	= sanitize_integer(be_random_name, 0, 1, initial(be_random_name))
 	gender			= sanitize_gender(gender, TRUE, TRUE) // Can be Neuter and Plural, why not?
 	age				= sanitize_integer(age, AGE_MIN, AGE_MAX, initial(age))
@@ -405,6 +411,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["disabilities"]		<< disabilities
 	S["organ_data"]			<< organ_data
 	S["gear"]				<< gear
+	S["skill_by_job"]		<< skill_by_job
+	S["points_by_job"]		<< points_by_job
 
 	S["nanotrasen_relation"] << nanotrasen_relation
 	S["home_system"] 		<< home_system

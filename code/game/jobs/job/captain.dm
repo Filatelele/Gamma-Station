@@ -14,6 +14,15 @@
 	minimal_player_ingame_minutes = 10000
 	restricted_species = list(SKRELL, UNATHI, TAJARAN, DIONA, IPC, TYCHEON)
 
+	skill_points = 23
+
+	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
+	                    SKILL_SCIENCE     = SKILL_ADEPT,
+	                    SKILL_PILOT       = SKILL_ADEPT)
+
+	max_skill = list(   SKILL_PILOT       = SKILL_MAX,
+	                    SKILL_SCIENCE     = SKILL_MAX)
+
 /datum/job/captain/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
 
@@ -74,6 +83,14 @@
 		access_clown, access_mime, access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_recycler, access_detective, access_barber
 	)
 
+	skill_points = 16
+
+	min_skill = list(   SKILL_BUREAUCRACY = SKILL_ADEPT,
+	                    SKILL_COMPUTER    = SKILL_BASIC,
+	                    SKILL_PILOT       = SKILL_BASIC)
+
+	max_skill = list(   SKILL_PILOT       = SKILL_MAX,
+	                    SKILL_SCIENCE     = SKILL_MAX)
 
 /datum/job/hop/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)	return 0
