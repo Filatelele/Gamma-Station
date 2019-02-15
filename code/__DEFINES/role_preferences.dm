@@ -20,6 +20,7 @@
 #define ROLE_SHADOWLING        "Shadowling"
 #define ROLE_ABDUCTOR          "Abductor"
 #define ROLE_SPETSNAZ          "Soviet Spetsnaz"
+#define ROLE_GANG              "Gangster"
 
 #define ROLE_ERT               "Emergency Response Team"
 #define ROLE_DRONE             "Maintenance Drone"
@@ -47,4 +48,5 @@ var/global/list/special_roles = list(
 	ROLE_SHADOWLING = 1, //IS_MODE_COMPILED("shadowling"),    //14
 	ROLE_ABDUCTOR = 1, //IS_MODE_COMPILED("abduction"),       //15
 	ROLE_SPETSNAZ = 1   //IS_MODE_COMPILED("spetsnaz")            //16
+	ROLE_GANG = 1, //IS_MODE_COMPILED("gang")                 //16
 )
