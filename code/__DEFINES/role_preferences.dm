@@ -47,6 +47,6 @@ var/global/list/special_roles = list(
 	ROLE_MUTINEER = 1, //IS_MODE_COMPILED("mutiny"),          //13
 	ROLE_SHADOWLING = 1, //IS_MODE_COMPILED("shadowling"),    //14
 	ROLE_ABDUCTOR = 1, //IS_MODE_COMPILED("abduction"),       //15
-	ROLE_SPETSNAZ = 1   //IS_MODE_COMPILED("spetsnaz")            //16
-	ROLE_GANG = 1, //IS_MODE_COMPILED("gang")                 //16
+	ROLE_SPETSNAZ = 1,   //IS_MODE_COMPILED("spetsnaz")            //16
+	ROLE_GANG = 1 //IS_MODE_COMPILED("gang")                 //16
 )
