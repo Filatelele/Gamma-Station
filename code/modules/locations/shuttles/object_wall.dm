@@ -35,6 +35,10 @@
 	icon = 'code/modules/locations/shuttles/wagon.dmi'
 	icon_state = "3,1"
 
+/obj/structure/object_wall/parovoz
+	icon = 'code/modules/locations/shuttles/parovoz.dmi'
+	icon_state = "3,1"
+
 /obj/structure/object_wall/erokez
 	icon = 'code/modules/locations/shuttles/erokez.dmi'
 	icon_state = "18,2"
