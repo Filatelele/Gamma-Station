@@ -529,7 +529,7 @@
 		icon_state = "vss-empty"
 
 /obj/item/ammo_box/magazine/vss/rubber/twentyrounds
-	name = "VSS magazine (9x39) 20 rubber"
+	name = "VSS magazine (9x39R) 20 rubber"
 	ammo_type = /obj/item/ammo_casing/vss/rubber
 	max_ammo = 20
 

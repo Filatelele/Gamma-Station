@@ -393,6 +393,10 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	requires_power = 0
 	icon_state = "brig"
 
+/area/spec_ops_base
+	requires_power = 0
+	icon_state = "brig"
+
 //PRISON
 /area/prison/solitary
 	name = "Solitary Confinement"

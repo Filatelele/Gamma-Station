@@ -20,7 +20,7 @@
 	to_chat(world, "<B>The current game mode is - Soviet Raid!</B>")
 	to_chat(world, "<B>Soviet spetsnaz is approaching [station_name()]!</B>")
 
-/datum/game_mode/nuclear/can_start()
+/datum/game_mode/spetsnaz/can_start()
 	if(!..())
 		return 0
 
@@ -41,10 +41,10 @@
 	for(var/datum/mind/tachanka in tachankas)
 		tachanka.assigned_role = "MODE"
 		tachanka.special_role = "Soviet Spetsnaz"
-	return 1
+	return TRUE
 
 /datum/game_mode/spetsnaz/pre_setup()
-	return 1
+	return TRUE
 
 ///////////////////////////////////////
 //HANDLE ICONS
@@ -95,39 +95,25 @@
 ///////////////////////////////////////
 
 /datum/game_mode/spetsnaz/post_setup()
-
-	var/list/turf/spets_spawn = list()
-
-	for(var/obj/effect/landmark/A in landmarks_list)
-		if(A.name == "Spetsnaz-Spawn")
-			spets_spawn += get_turf(A)
-			qdel(A)
-			continue
+	var/highest_player_age = 0
+	var/datum/mind/leader
+	for(var/datum/mind/tachanka in tachankas)
+		if(tachanka.current.client.player_ingame_age >= highest_player_age)
+			highest_player_age = tachanka.current.client.player_ingame_age
+			leader = tachanka
 
 	var/spawnpos = 1
 
-	var/highest_player_age
-	var/client/leader_client
 	for(var/datum/mind/tachanka in tachankas)
-		if(!tachanka.current || !tachanka.current.client)
-			continue
-		if(tachanka.current.client.player_ingame_age > highest_player_age)
-			highest_player_age = tachanka.current.client.player_ingame_age
-			leader_client = tachanka.current.client
-
-	leader_client.mob.faction = "soviets"
-	//prepare_tachanka_leader(leader_client)
-	greet_tachanka(leader_client.mob, FALSE, TRUE)
-	equip_tachanka(leader_client.mob, TRUE)
-
-	for(var/datum/mind/tachanka in tachankas)
-		if(tachanka == leader_client.mob.mind)
-			continue
 		//THERE ARE ONLY HUMANS IN SOVIET UNION! NO XENOS ALLOWED, COMRADEZ!
+		tachanka.assigned_role = "MODE"
 		tachanka.current.faction = "soviets"
-		greet_tachanka(tachanka)
-		equip_tachanka(tachanka.current)
-		tachanka.current.loc = spets_spawn[spawnpos]
+		greet_tachanka(tachanka, (tachanka == leader) ? TRUE : FALSE)
+		equip_tachanka(tachanka.current, (tachanka == leader) ? TRUE : FALSE)
+		if(tachanka == leader)
+			tachanka.current.loc = get_turf(locate(/obj/effect/landmark/spetsnaz_leader_spawn))
+		else
+			tachanka.current.loc = get_turf(spetsnaz_spawn_list[spawnpos])
 
 		if(!config.objectives_disabled)
 			forge_syndicate_objectives(tachanka)
@@ -158,6 +144,6 @@
 	if(leader)//GRU OFFICER IN COMMAND
 		tachanka.equip_to_slot_or_del(new /obj/item/weapon/extraction_pack(tachanka), slot_l_hand)
 
-	return 1
+	return TRUE
 
 /datum/game_mode/proc/greet_tachanka(mob/living/carbon/human/tachanka, leader)
