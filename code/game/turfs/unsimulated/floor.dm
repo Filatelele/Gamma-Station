@@ -35,3 +35,6 @@ var/global/list/self_cleaning_list = list()
 /turf/unsimulated/floor/self_cleaning/Destroy()
 	self_cleaning_list -= src
 	return ..()
+
+/turf/unsimulated/floor/ironsand
+	icon_state = "ironsand2"

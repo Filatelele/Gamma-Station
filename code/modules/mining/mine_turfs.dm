@@ -458,6 +458,9 @@
 	mineralSpawnChanceList = list("Uranium" = 1, "Platinum" = 1, "Iron" = 60, "Coal" = 30, "Diamond" = 1, "Gold" = 1, "Silver" = 1, "Phoron" = 2)
 	icon_state = "rock_labor"
 
+/turf/simulated/mineral/random/labormineral/gulag
+	basetype = /turf/unsimulated/floor/ironsand
+
 /turf/simulated/mineral/random/labormineral/atom_init()
 	icon_state = "rock"
 	. = ..()
